@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Logo from './Logo';
 
 const WA_NUMBER = '91XXXXXXXXXX';
 const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! 🍓 I'd like to order fresh strawberries. Please share the details.");
@@ -53,15 +54,15 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ background: '#1a0a0e', color: 'white' }}>
+    <footer style={{ background: '#0D1B2A', color: 'white' }}>
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-12">
-        {/* Brand */}
+        {/* Brand — logo with tagline */}
         <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-2 text-2xl font-black" style={{ fontFamily: 'Poppins', color: '#E63946' }}>
-            <span>🍓</span> The Berry Patch
-          </div>
-          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'Lato' }}>
-            Delivering nature's sweetest gift — fresh, sustainably grown strawberries — straight from our farm to your table.
+          <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <Logo height={64} showTagline onDark />
+          </a>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'Lato' }}>
+            Fresh, organically grown strawberries from the cool hills of Kodaikanal — delivered to your door.
           </p>
           <div className="flex gap-3">
             {SOCIAL_LINKS.map(({ label, href, hoverBg, Icon }) => (

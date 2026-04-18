@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../data/content';
+import Logo from './Logo';
 
-const WA_NUMBER = '91XXXXXXXXXX';
-const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! 🍓 I'd like to order fresh strawberries. Please share the details.");
+const WA_NUMBER = '919176540077';
+const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! I'd like to order fresh strawberries. Please share the details.");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
-const IG_LINK = 'https://instagram.com/theberrypatch';
+const IG_LINK = 'https://www.instagram.com/theberrypatch.organic?igsh=MTNocDgzdzF5ZWJnaA==';
 
 function WaIcon({ size = 16 }) {
   return (
@@ -31,7 +32,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -46,111 +47,130 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg py-3'
-          : 'bg-transparent py-5'
-      }`}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(14px)' : 'none',
+        padding: scrolled ? '6px 0' : '12px 0',
+        boxShadow: scrolled ? '0 1px 20px rgba(27,58,107,0.10)' : 'none',
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-2 text-xl font-black font-[Poppins]"
-          style={{ color: '#E63946' }}>
-          <span className="text-2xl">🍓</span>
-          <span className={scrolled ? 'text-gray-900' : 'text-white drop-shadow-md'}>
-            The Berry Patch
-          </span>
+
+        {/* ── Logo ── */}
+        <a
+          href="#"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          style={{ textDecoration: 'none' }}
+        >
+          {scrolled ? (
+            /* On white navbar — show full colour logo */
+            <Logo height={48} />
+          ) : (
+            /* On hero (transparent) — white overlay version */
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ fontSize: 28, lineHeight: 1 }}>🍓</span>
+              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+                <span style={{
+                  fontFamily: "'Poppins', sans-serif", fontWeight: 900,
+                  fontSize: 16, color: 'white',
+                  textShadow: '0 1px 6px rgba(0,0,0,0.5)', letterSpacing: '-0.01em',
+                }}>
+                  The Berry
+                </span>
+                <span style={{
+                  fontFamily: "'Dancing Script', cursive", fontWeight: 700,
+                  fontSize: 19, color: '#FBBF24',
+                  textShadow: '0 1px 6px rgba(0,0,0,0.5)', marginTop: -1,
+                }}>
+                  Patch
+                </span>
+              </div>
+            </div>
+          )}
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        {/* ── Desktop Nav ── */}
+        <nav className="hidden lg:flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <button
               key={link.href}
               onClick={() => handleLink(link.href)}
-              className={`text-sm font-semibold font-[Poppins] transition-colors duration-200 hover:text-red-primary ${
-                scrolled ? 'text-gray-700' : 'text-white/90 drop-shadow'
-              }`}
-              style={{ '--tw-text-opacity': 1 }}
+              style={{
+                fontFamily: 'Poppins', fontSize: 13, fontWeight: 600,
+                color: scrolled ? '#1B3A6B' : 'rgba(255,255,255,0.88)',
+                background: 'none', border: 'none', cursor: 'pointer',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#C0392B'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = scrolled ? '#1B3A6B' : 'rgba(255,255,255,0.88)'; }}
             >
               {link.label}
             </button>
           ))}
-          {/* Instagram link */}
-          <a
-            href={IG_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
+
+          <a href={IG_LINK} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
             className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 hover:scale-110"
-            style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)', color: 'white' }}
-          >
+            style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)', color: 'white' }}>
             <IgIcon size={15} />
           </a>
 
-          {/* WhatsApp order button */}
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold font-[Poppins] text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
-            style={{ background: '#25D366', boxShadow: '0 4px 14px rgba(37,211,102,0.35)' }}
-          >
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full text-white font-bold transition-all duration-200 hover:scale-105"
+            style={{ fontFamily: 'Poppins', fontSize: 13, background: '#25D366', boxShadow: '0 3px 12px rgba(37,211,102,0.35)' }}>
             <WaIcon size={16} /> Order on WhatsApp
           </a>
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* ── Mobile hamburger ── */}
         <button
           onClick={() => setOpen(!open)}
-          className={`lg:hidden p-2 rounded-lg ${scrolled ? 'text-gray-800' : 'text-white'}`}
+          className="lg:hidden p-2 rounded-lg"
+          style={{ color: scrolled ? '#1B3A6B' : 'white' }}
           aria-label="Toggle menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ── Mobile Menu ── */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t border-gray-100 shadow-xl overflow-hidden"
+            transition={{ duration: 0.25 }}
+            className="lg:hidden bg-white overflow-hidden"
+            style={{ borderTop: '1px solid #e8f0e4', boxShadow: '0 8px 24px rgba(27,58,107,0.10)' }}
           >
-            <div className="px-6 py-4 flex flex-col gap-4">
+            {/* Logo inside mobile menu */}
+            <div className="flex justify-center py-5 pb-3">
+              <Logo height={60} showTagline />
+            </div>
+
+            <div className="px-6 pb-5 flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleLink(link.href)}
-                  className="text-left text-gray-700 font-semibold font-[Poppins] py-2 border-b border-gray-100 hover:text-red-primary transition-colors"
-                  style={{ color: undefined }}
+                  className="text-left py-3 text-sm font-semibold transition-colors"
+                  style={{ fontFamily: 'Poppins', color: '#1B3A6B', borderBottom: '1px solid #f0f5ee', background: 'none', border: 'none', borderBottom: '1px solid #f0f5ee', cursor: 'pointer', width: '100%' }}
                 >
                   {link.label}
                 </button>
               ))}
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-white font-bold font-[Poppins] text-center"
-                style={{ background: '#25D366' }}
-              >
+                className="flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold text-sm mt-3"
+                style={{ fontFamily: 'Poppins', background: '#25D366' }}>
                 <WaIcon size={18} /> Order on WhatsApp
               </a>
-              <a
-                href={IG_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href={IG_LINK} target="_blank" rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full text-white font-bold font-[Poppins] text-center"
-                style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}
-              >
+                className="flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold text-sm"
+                style={{ fontFamily: 'Poppins', background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}>
                 <IgIcon size={18} /> Follow on Instagram
               </a>
             </div>
