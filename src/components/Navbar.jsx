@@ -3,14 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../data/content';
 
-const WA_NUMBER = '919176540077';
-const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! I'd like to order fresh strawberries. Please share the details.");
+const WA_NUMBER = '91XXXXXXXXXX';
+const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! 🍓 I'd like to order fresh strawberries. Please share the details.");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
-const IG_LINK = 'https://www.instagram.com/theberrypatch.organic?igsh=MTNocDgzdzF5ZWJnaA==';
-
-const BERRY   = '#C0392B';
-const NAVY    = '#1B3A6B';
-const GREEN   = '#4A7C3F';
+const IG_LINK = 'https://instagram.com/theberrypatch';
 
 function WaIcon({ size = 16 }) {
   return (
@@ -35,7 +31,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -51,68 +47,38 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(14px)' : 'none',
-        padding: scrolled ? '8px 0' : '14px 0',
-        boxShadow: scrolled ? '0 2px 24px rgba(27,58,107,0.10)' : 'none',
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-3'
+          : 'bg-transparent py-5'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-
         {/* Logo */}
-        <a
-          href="#"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center"
-        >
-          {/* Real logo — always render, opacity switches */}
-          <img
-            src="/logo.png"
-            alt="The Berry Patch — Organic Goodness, Berry By Berry"
-            style={{
-              height: 52,
-              objectFit: 'contain',
-              opacity: scrolled ? 1 : 0,
-              position: scrolled ? 'relative' : 'absolute',
-              transition: 'opacity 0.3s',
-            }}
-          />
-          {/* Hero text logo when transparent */}
-          <div style={{ opacity: scrolled ? 0 : 1, position: scrolled ? 'absolute' : 'relative', transition: 'opacity 0.3s', display: 'flex', alignItems: 'baseline', gap: 4 }}>
-            <span style={{ fontFamily: 'Poppins', fontWeight: 900, fontSize: 20, color: 'white', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
-              The Berry
-            </span>
-            <span style={{ fontFamily: "'Dancing Script', cursive", fontWeight: 700, fontSize: 26, color: '#FBBF24', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
-              Patch
-            </span>
-          </div>
+        <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="flex items-center gap-2 text-xl font-black font-[Poppins]"
+          style={{ color: '#E63946' }}>
+          <span className="text-2xl">🍓</span>
+          <span className={scrolled ? 'text-gray-900' : 'text-white drop-shadow-md'}>
+            The Berry Patch
+          </span>
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <button
               key={link.href}
               onClick={() => handleLink(link.href)}
-              style={{
-                fontFamily: 'Poppins',
-                fontSize: 13,
-                fontWeight: 600,
-                color: scrolled ? NAVY : 'rgba(255,255,255,0.92)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.color = BERRY; }}
-              onMouseLeave={e => { e.currentTarget.style.color = scrolled ? NAVY : 'rgba(255,255,255,0.92)'; }}
+              className={`text-sm font-semibold font-[Poppins] transition-colors duration-200 hover:text-red-primary ${
+                scrolled ? 'text-gray-700' : 'text-white/90 drop-shadow'
+              }`}
+              style={{ '--tw-text-opacity': 1 }}
             >
               {link.label}
             </button>
           ))}
-
+          {/* Instagram link */}
           <a
             href={IG_LINK}
             target="_blank"
@@ -124,12 +90,13 @@ export default function Navbar() {
             <IgIcon size={15} />
           </a>
 
+          {/* WhatsApp order button */}
           <a
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full text-white font-bold transition-all duration-200 hover:scale-105"
-            style={{ fontFamily: 'Poppins', fontSize: 13, background: '#25D366', boxShadow: '0 4px 14px rgba(37,211,102,0.4)' }}
+            className="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold font-[Poppins] text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
+            style={{ background: '#25D366', boxShadow: '0 4px 14px rgba(37,211,102,0.35)' }}
           >
             <WaIcon size={16} /> Order on WhatsApp
           </a>
@@ -138,8 +105,7 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 rounded-lg"
-          style={{ color: scrolled ? NAVY : 'white' }}
+          className={`lg:hidden p-2 rounded-lg ${scrolled ? 'text-gray-800' : 'text-white'}`}
           aria-label="Toggle menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -154,19 +120,15 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white overflow-hidden"
-            style={{ borderTop: '1px solid #e8f0e4', boxShadow: '0 8px 32px rgba(27,58,107,0.1)' }}
+            className="lg:hidden bg-white border-t border-gray-100 shadow-xl overflow-hidden"
           >
-            <div className="flex justify-center py-4">
-              <img src="/logo.png" alt="The Berry Patch" style={{ height: 56, objectFit: 'contain' }} />
-            </div>
-            <div className="px-6 pb-5 flex flex-col gap-2">
+            <div className="px-6 py-4 flex flex-col gap-4">
               {NAV_LINKS.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleLink(link.href)}
-                  className="text-left py-3 text-sm font-semibold transition-colors"
-                  style={{ fontFamily: 'Poppins', color: NAVY, borderBottom: '1px solid #e8f0e4' }}
+                  className="text-left text-gray-700 font-semibold font-[Poppins] py-2 border-b border-gray-100 hover:text-red-primary transition-colors"
+                  style={{ color: undefined }}
                 >
                   {link.label}
                 </button>
@@ -176,8 +138,8 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold text-sm mt-2"
-                style={{ fontFamily: 'Poppins', background: '#25D366' }}
+                className="mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-white font-bold font-[Poppins] text-center"
+                style={{ background: '#25D366' }}
               >
                 <WaIcon size={18} /> Order on WhatsApp
               </a>
@@ -186,8 +148,8 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold text-sm"
-                style={{ fontFamily: 'Poppins', background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full text-white font-bold font-[Poppins] text-center"
+                style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}
               >
                 <IgIcon size={18} /> Follow on Instagram
               </a>
