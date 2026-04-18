@@ -4,9 +4,9 @@ import { PRODUCTS } from '../data/content';
 function ProductCard({ product, index }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.15, duration: 0.6 }}
+      transition={{ delay: index * 0.15, duration: 0.4 }}
       viewport={{ once: true, margin: '-80px' }}
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className={`relative flex flex-col rounded-3xl overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-2xl ${
@@ -73,7 +73,7 @@ export default function Products() {
     <section id="products" className="py-24 px-6" style={{ background: '#F2F7EF' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"

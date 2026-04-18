@@ -17,7 +17,7 @@ export default function Contact() {
     <section id="contact" className="py-24 px-6" style={{ background: '#F2F7EF' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
@@ -36,9 +36,9 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact info + Map */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.45 }}
             viewport={{ once: true }}
             className="flex flex-col gap-6"
           >
@@ -75,9 +75,9 @@ export default function Contact() {
 
           {/* Contact form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.45 }}
             viewport={{ once: true }}
             className="p-8 rounded-3xl shadow-xl"
             style={{ background: 'white', border: '1px solid #f3e8ea' }}

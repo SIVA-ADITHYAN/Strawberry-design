@@ -17,7 +17,7 @@ export default function Testimonials() {
     <section id="testimonials" className="py-24 px-6" style={{ background: '#FAFDF8' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
@@ -34,9 +34,9 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t, i) => (
             <motion.div
               key={t.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
+              transition={{ delay: i * 0.1, duration: 0.4 }}
               viewport={{ once: true }}
               whileHover={{ y: -6 }}
               className={`flex flex-col gap-4 p-6 rounded-3xl shadow-md transition-shadow duration-300 hover:shadow-xl ${

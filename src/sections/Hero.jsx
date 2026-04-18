@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { STATS } from '../data/content';
 
-function useCounter(target, duration = 2000, start = false) {
+function useCounter(target, duration = 1800, start = false) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     if (!start) return;
@@ -22,11 +22,11 @@ function useCounter(target, duration = 2000, start = false) {
 }
 
 function StatItem({ stat, animate }) {
-  const display = useCounter(stat.value, 2000, animate);
+  const display = useCounter(stat.value, 1800, animate);
   return (
-    <div className="text-center text-white">
-      <div className="text-3xl md:text-4xl font-black font-[Poppins] drop-shadow">{display}</div>
-      <div className="text-sm text-white/80 mt-1 font-[Lato]">{stat.label}</div>
+    <div className="text-center">
+      <div className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'Poppins' }}>{display}</div>
+      <div className="text-xs text-white/65 mt-1" style={{ fontFamily: 'Lato' }}>{stat.label}</div>
     </div>
   );
 }
@@ -41,7 +41,7 @@ export default function Hero() {
     const onScroll = () => {
       if (heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect();
-        if (rect.bottom > 0) setScrollY(window.scrollY * 0.18);
+        if (rect.bottom > 0) setScrollY(window.scrollY * 0.15);
       }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -49,113 +49,114 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStatsVisible(true); }, { threshold: 0.5 });
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStatsVisible(true); }, { threshold: 0.4 });
     if (statsRef.current) obs.observe(statsRef.current);
     return () => obs.disconnect();
   }, []);
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
-      {/* Background with parallax */}
+
+      {/* Background — single clean dark overlay, no colour noise */}
       <div className="absolute inset-0">
         <img
           src="/hero.png"
           alt="Fresh glistening strawberries"
           className="w-full h-full object-cover"
-          style={{ transform: `translateY(${scrollY}px) scale(1.1)` }}
+          style={{ transform: `translateY(${scrollY}px) scale(1.08)` }}
         />
-        <div className="absolute inset-0" style={{
-          background: 'linear-gradient(135deg, rgba(13,27,42,0.75) 0%, rgba(192,57,43,0.4) 50%, rgba(13,27,42,0.8) 100%)'
-        }} />
+        {/* Single uniform dark overlay — far easier to read against */}
+        <div className="absolute inset-0" style={{ background: 'rgba(8,18,32,0.58)' }} />
+        {/* Subtle bottom fade so stats don't float on raw image */}
+        <div className="absolute bottom-0 left-0 right-0 h-40"
+          style={{ background: 'linear-gradient(to top, rgba(8,18,32,0.7), transparent)' }} />
       </div>
 
-      {/* Floating decorative blobs */}
-      <div className="absolute top-20 right-10 w-64 h-64 rounded-full opacity-20 blur-3xl"
-        style={{ background: '#C0392B' }} />
-      <div className="absolute bottom-32 left-10 w-48 h-48 rounded-full opacity-15 blur-3xl"
-        style={{ background: '#4A7C3F' }} />
-
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
+      <div className="relative z-10 text-center px-6 max-w-3xl mx-auto pt-24">
+
+        {/* Eyebrow badge */}
         <motion.span
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6"
-          style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)' }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-widest"
+          style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.18)' }}
         >
-          🌱 100% Farm Fresh
+          🌱 Organic · Kodaikanal
         </motion.span>
 
+        {/* Heading — plain white, no coloured italic clashing with overlay */}
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.7 }}
-          className="text-5xl md:text-7xl font-black font-[Poppins] text-white leading-tight mb-6"
-        >
-          Freshly Picked <br />
-          <span className="italic" style={{ color: '#E8365D' }}>Happiness</span>
-          {' '}🍓
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mb-10 font-[Lato]"
-        >
-          Experience the sweetness of nature with handpicked, farm-fresh strawberries delivered straight to you — from our fields to your table.
-        </motion.p>
-
-        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+          transition={{ delay: 0.15, duration: 0.6 }}
+          className="text-4xl md:text-6xl font-black text-white leading-tight mb-5"
+          style={{ fontFamily: 'Poppins', textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}
         >
-          <a href="#order"
-            className="px-8 py-4 rounded-full text-white font-bold font-[Poppins] text-lg transition-all duration-200 hover:scale-105 hover:shadow-2xl"
-            style={{ background: 'linear-gradient(135deg, #C0392B, #922B21)', boxShadow: '0 8px 32px rgba(192,57,43,0.4)' }}
+          Freshly Picked<br />
+          <span style={{ color: '#ffffff', fontStyle: 'italic', opacity: 0.92 }}>Happiness</span>
+          {'  '}🍓
+        </motion.h1>
+
+        {/* Subtext — high contrast, not too long */}
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-base md:text-lg text-white/80 max-w-xl mx-auto mb-9 leading-relaxed"
+          style={{ fontFamily: 'Lato' }}
+        >
+          Handpicked organic strawberries from the cool hills of Kodaikanal —
+          delivered fresh to your door.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.5 }}
+          className="flex flex-col sm:flex-row gap-3 justify-center mb-16"
+        >
+          <a
+            href="#order"
+            className="px-7 py-3.5 rounded-full text-white font-bold transition-all duration-200 hover:opacity-90 hover:shadow-lg"
+            style={{ fontFamily: 'Poppins', fontSize: 15, background: '#C0392B' }}
           >
-            Shop Now
+            Order Now
           </a>
-          <a href="#about"
-            className="px-8 py-4 rounded-full text-white font-bold font-[Poppins] text-lg transition-all duration-200 hover:bg-white/20"
-            style={{ border: '2px solid rgba(255,255,255,0.6)', backdropFilter: 'blur(4px)' }}
+          <a
+            href="#about"
+            className="px-7 py-3.5 rounded-full text-white font-medium transition-all duration-200 hover:bg-white/15"
+            style={{ fontFamily: 'Poppins', fontSize: 15, border: '1.5px solid rgba(255,255,255,0.45)' }}
           >
-            Learn More
+            Our Story
           </a>
         </motion.div>
 
         {/* Stats */}
         <motion.div
           ref={statsRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
           className="flex items-center justify-center gap-8 md:gap-12"
         >
           {STATS.map((stat, i) => (
             <div key={stat.label} className="flex items-center gap-8 md:gap-12">
               <StatItem stat={stat} animate={statsVisible} />
-              {i < STATS.length - 1 && (
-                <div className="w-px h-10 bg-white/30" />
-              )}
+              {i < STATS.length - 1 && <div className="w-px h-8 bg-white/20" />}
             </div>
           ))}
         </motion.div>
       </div>
 
-      {/* Scroll hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60"
-      >
-        <span className="text-xs font-[Poppins] tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent animate-pulse" />
-      </motion.div>
+      {/* Scroll hint — simple, no pulse */}
+      <div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
+        style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <span className="text-xs tracking-widest uppercase" style={{ fontFamily: 'Poppins', fontSize: 9 }}>Scroll</span>
+        <div className="w-px h-8 bg-white/25" />
+      </div>
     </section>
   );
 }

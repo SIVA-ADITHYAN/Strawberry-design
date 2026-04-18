@@ -7,9 +7,9 @@ export default function Benefits() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* Left: Text + cards */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true, margin: '-80px' }}
         >
           <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#4A7C3F' }}>
@@ -46,9 +46,9 @@ export default function Benefits() {
 
         {/* Right: Image */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true, margin: '-80px' }}
           className="relative"
         >

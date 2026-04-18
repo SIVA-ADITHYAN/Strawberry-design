@@ -10,7 +10,7 @@ export default function Gallery() {
     <section id="gallery" className="py-24 px-6" style={{ background: '#F2F7EF' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
