@@ -60,18 +60,29 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <img
-            src="/logo.png"
-            alt="The Berry Patch — Organic Goodness, Berry By Berry"
-            style={{
-              height: scrolled ? 52 : 56,
-              width: 'auto',
-              objectFit: 'contain',
-              transition: 'height 0.3s',
-              /* drop shadow so logo is visible on hero image */
-              filter: scrolled ? 'none' : 'drop-shadow(0 2px 6px rgba(0,0,0,0.45))',
-            }}
-          />
+          <div style={{
+            background: 'white',
+            borderRadius: '50%',
+            width: scrolled ? 64 : 72,
+            height: scrolled ? 64 : 72,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.3s',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
+            flexShrink: 0,
+          }}>
+            <img
+              src="/logo.png"
+              alt="The Berry Patch — Organic Goodness, Berry By Berry"
+              style={{
+                height: scrolled ? 52 : 60,
+                width: 'auto',
+                objectFit: 'contain',
+                transition: 'height 0.3s',
+              }}
+            />
+          </div>
         </a>
 
         {/* Desktop Nav */}
@@ -125,7 +136,9 @@ export default function Navbar() {
             style={{ borderTop: '1px solid #e8f0e4', boxShadow: '0 8px 24px rgba(27,58,107,0.10)' }}
           >
             <div className="flex justify-center py-5 pb-3">
-              <img src="/logo.png" alt="The Berry Patch" style={{ height: 64, objectFit: 'contain' }} />
+              <div style={{ background: 'white', borderRadius: '50%', width: 80, height: 80, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 12px rgba(0,0,0,0.10)' }}>
+                <img src="/logo.png" alt="The Berry Patch" style={{ height: 68, objectFit: 'contain' }} />
+              </div>
             </div>
             <div className="px-6 pb-5 flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
