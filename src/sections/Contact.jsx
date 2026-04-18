@@ -14,7 +14,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6" style={{ background: '#f8f1f3' }}>
+    <section id="contact" className="py-24 px-6" style={{ background: '#F2F7EF' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,11 +22,11 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#E63946' }}>
+          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#C0392B' }}>
             Get in Touch
           </span>
           <h2 className="text-4xl md:text-5xl font-black font-[Poppins] text-gray-900 mt-2">
-            Visit or <span style={{ color: '#E63946' }}>Contact Us</span>
+            Visit or <span style={{ color: '#C0392B' }}>Contact Us</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto mt-4 font-[Lato] text-lg">
             We'd love to hear from you! Drop us a message or visit the farm directly.
@@ -44,10 +44,10 @@ export default function Contact() {
           >
             {/* Info cards */}
             {[
-              { icon: MapPin, label: 'Location', text: 'Berry Farm Road, Mahabaleshwar, Maharashtra, India', color: '#E63946' },
-              { icon: Phone, label: 'Phone', text: '+91 XXXXX XXXXX', color: '#2A9D8F' },
-              { icon: Mail, label: 'Email', text: 'info@berrypatch.com', color: '#F4A261' },
-              { icon: Clock, label: 'Hours', text: 'Mon–Sat: 7 AM – 7 PM  |  Sun: 8 AM – 2 PM', color: '#E63946' },
+              { icon: MapPin, label: 'Location', text: 'Berry Farm Road, Mahabaleshwar, Maharashtra, India', color: '#C0392B' },
+              { icon: Phone, label: 'Phone', text: '+91 XXXXX XXXXX', color: '#4A7C3F' },
+              { icon: Mail, label: 'Email', text: 'info@berrypatch.com', color: '#D4A853' },
+              { icon: Clock, label: 'Hours', text: 'Mon–Sat: 7 AM – 7 PM  |  Sun: 8 AM – 2 PM', color: '#C0392B' },
             ].map(({ icon: Icon, label, text, color }) => (
               <div key={label} className="flex items-start gap-4 p-5 rounded-2xl shadow-sm"
                 style={{ background: 'white', border: '1px solid #f3e8ea' }}>
@@ -89,7 +89,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-6 px-4 py-3 rounded-xl text-sm font-semibold font-[Poppins] text-white"
-                style={{ background: '#2A9D8F' }}
+                style={{ background: '#4A7C3F' }}
               >
                 ✅ Message sent! We'll get back to you soon.
               </motion.div>
@@ -109,7 +109,7 @@ export default function Contact() {
                     value={form[key]}
                     onChange={(e) => setForm({ ...form, [key]: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl text-sm font-[Lato] outline-none transition-all duration-200 focus:ring-2"
-                    style={{ background: '#FFF9F5', border: '1.5px solid #e5e7eb', focusRingColor: '#E63946' }}
+                    style={{ background: '#FAFDF8', border: '1.5px solid #e5e7eb', focusRingColor: '#C0392B' }}
                     required
                   />
                 </div>
@@ -122,7 +122,7 @@ export default function Contact() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl text-sm font-[Lato] outline-none resize-none transition-all duration-200"
-                  style={{ background: '#FFF9F5', border: '1.5px solid #e5e7eb' }}
+                  style={{ background: '#FAFDF8', border: '1.5px solid #e5e7eb' }}
                   required
                 />
               </div>
@@ -131,7 +131,7 @@ export default function Contact() {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-white font-bold font-[Poppins] transition-shadow hover:shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #E63946, #c1121f)' }}
+                style={{ background: 'linear-gradient(135deg, #C0392B, #922B21)' }}
               >
                 <Send size={16} /> Send Message
               </motion.button>

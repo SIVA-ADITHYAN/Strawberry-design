@@ -5,12 +5,12 @@ import { ChevronRight } from 'lucide-react';
 export default function Process() {
   return (
     <section id="process" className="py-24 px-6 relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #1a0a0e 0%, #2d0f17 50%, #1a0a0e 100%)' }}>
+      style={{ background: 'linear-gradient(135deg, #0D1B2A 0%, #1B3A6B 50%, #0D1B2A 100%)' }}>
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 blur-3xl"
-        style={{ background: '#E63946' }} />
+        style={{ background: '#C0392B' }} />
       <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-10 blur-3xl"
-        style={{ background: '#2A9D8F' }} />
+        style={{ background: '#4A7C3F' }} />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -19,12 +19,12 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#ff6b7a' }}>
+          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#E8365D' }}>
             Our Promise
           </span>
           <h2 className="text-4xl md:text-5xl font-black font-[Poppins] text-white mt-2">
             From Our Farm{' '}
-            <span style={{ color: '#E63946' }}>to Your Table</span>
+            <span style={{ color: '#C0392B' }}>to Your Table</span>
           </h2>
           <p className="text-white/60 max-w-xl mx-auto mt-4 font-[Lato] text-lg">
             We take extreme care at every step — from planting to delivery — so you get the freshest berry possible.
@@ -44,7 +44,7 @@ export default function Process() {
                 style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}
               >
                 <div className="text-5xl mb-4">{step.icon}</div>
-                <div className="text-sm font-black font-[Poppins] mb-2" style={{ color: '#E63946' }}>
+                <div className="text-sm font-black font-[Poppins] mb-2" style={{ color: '#C0392B' }}>
                   {step.num}
                 </div>
                 <h3 className="text-lg font-bold font-[Poppins] text-white mb-3">{step.title}</h3>

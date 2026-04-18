@@ -65,15 +65,15 @@ export default function Hero() {
           style={{ transform: `translateY(${scrollY}px) scale(1.1)` }}
         />
         <div className="absolute inset-0" style={{
-          background: 'linear-gradient(135deg, rgba(26,10,14,0.75) 0%, rgba(230,57,70,0.4) 50%, rgba(26,10,14,0.8) 100%)'
+          background: 'linear-gradient(135deg, rgba(13,27,42,0.75) 0%, rgba(192,57,43,0.4) 50%, rgba(13,27,42,0.8) 100%)'
         }} />
       </div>
 
       {/* Floating decorative blobs */}
       <div className="absolute top-20 right-10 w-64 h-64 rounded-full opacity-20 blur-3xl"
-        style={{ background: '#E63946' }} />
+        style={{ background: '#C0392B' }} />
       <div className="absolute bottom-32 left-10 w-48 h-48 rounded-full opacity-15 blur-3xl"
-        style={{ background: '#2A9D8F' }} />
+        style={{ background: '#4A7C3F' }} />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
@@ -94,7 +94,7 @@ export default function Hero() {
           className="text-5xl md:text-7xl font-black font-[Poppins] text-white leading-tight mb-6"
         >
           Freshly Picked <br />
-          <span className="italic" style={{ color: '#ff6b7a' }}>Happiness</span>
+          <span className="italic" style={{ color: '#E8365D' }}>Happiness</span>
           {' '}🍓
         </motion.h1>
 
@@ -115,7 +115,7 @@ export default function Hero() {
         >
           <a href="#order"
             className="px-8 py-4 rounded-full text-white font-bold font-[Poppins] text-lg transition-all duration-200 hover:scale-105 hover:shadow-2xl"
-            style={{ background: 'linear-gradient(135deg, #E63946, #c1121f)', boxShadow: '0 8px 32px rgba(230,57,70,0.4)' }}
+            style={{ background: 'linear-gradient(135deg, #C0392B, #922B21)', boxShadow: '0 8px 32px rgba(192,57,43,0.4)' }}
           >
             Shop Now
           </a>

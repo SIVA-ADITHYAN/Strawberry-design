@@ -3,7 +3,7 @@ import { BENEFITS } from '../data/content';
 
 export default function Benefits() {
   return (
-    <section id="benefits" className="py-24 px-6" style={{ background: '#FFF9F5' }}>
+    <section id="benefits" className="py-24 px-6" style={{ background: '#FAFDF8' }}>
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* Left: Text + cards */}
         <motion.div
@@ -12,12 +12,12 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true, margin: '-80px' }}
         >
-          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#2A9D8F' }}>
+          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#4A7C3F' }}>
             Good for You
           </span>
           <h2 className="text-4xl md:text-5xl font-black font-[Poppins] text-gray-900 mt-2 mb-4">
             Why Choose{' '}
-            <span style={{ color: '#E63946' }}>Strawberries?</span>
+            <span style={{ color: '#C0392B' }}>Strawberries?</span>
           </h2>
           <p className="text-gray-500 font-[Lato] mb-8 text-lg">
             Strawberries are not just delicious — they're an incredible powerhouse of nutrition. Nature's candy with all the good stuff.
@@ -56,7 +56,7 @@ export default function Benefits() {
             <img src="/lifestyle.png" alt="Person happily eating fresh strawberries"
               className="w-full h-[500px] object-cover" />
             <div className="absolute inset-0"
-              style={{ background: 'linear-gradient(to top, rgba(230,57,70,0.3), transparent)' }} />
+              style={{ background: 'linear-gradient(to top, rgba(192,57,43,0.3), transparent)' }} />
           </div>
           {/* Float card */}
           <motion.div
@@ -65,7 +65,7 @@ export default function Benefits() {
             transition={{ delay: 0.5, type: 'spring' }}
             viewport={{ once: true }}
             className="absolute -bottom-6 -left-4 flex items-center gap-3 px-5 py-4 rounded-2xl shadow-xl"
-            style={{ background: 'white', border: '2px solid #2A9D8F' }}
+            style={{ background: 'white', border: '2px solid #4A7C3F' }}
           >
             <span className="text-3xl">🍓</span>
             <div>
@@ -75,7 +75,7 @@ export default function Benefits() {
           </motion.div>
           {/* decorative dots */}
           <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-25 blur-xl"
-            style={{ background: '#F4A261' }} />
+            style={{ background: '#D4A853' }} />
         </motion.div>
       </div>
     </section>

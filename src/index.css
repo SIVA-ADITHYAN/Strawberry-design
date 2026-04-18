@@ -1,28 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Dancing+Script:wght@700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-poppins: 'Poppins', sans-serif;
   --font-lato: 'Lato', sans-serif;
-  --color-red-primary: #E63946;
-  --color-red-dark: #c1121f;
-  --color-red-light: #ff6b7a;
-  --color-green-primary: #2A9D8F;
-  --color-green-dark: #1d7a6e;
-  --color-yellow-accent: #F4A261;
-  --color-cream: #FFF9F5;
-  --color-dark: #1a0a0e;
+  --font-playfair: 'Playfair Display', serif;
+  --font-script: 'Dancing Script', cursive;
+
+  /* ── Logo-extracted palette ── */
+  --color-berry:       #C0392B;   /* strawberry/raspberry red */
+  --color-berry-dark:  #922B21;
+  --color-berry-light: #E8365D;
+  --color-navy:        #1B3A6B;   /* "Patch" text navy */
+  --color-navy-dark:   #0D1B2A;
+  --color-green:       #4A7C3F;   /* tagline forest green */
+  --color-green-dark:  #3A6230;
+  --color-purple:      #5B5EA6;   /* blueberry accent */
+  --color-amber:       #D4A853;   /* warm amber for stars */
+  --color-cream:       #FAFDF8;   /* organic cream bg */
+  --color-soft:        #F2F7EF;   /* alternating section bg */
+  --color-dark:        #0D1B2A;
+
+  /* keep these aliases so existing Tailwind classes still resolve */
+  --color-red-primary: #C0392B;
+  --color-green-primary: #4A7C3F;
 }
 
 * { scroll-behavior: smooth; }
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #FFF9F5;
-  color: #1a0a0e;
+  background-color: #FAFDF8;
+  color: #0D1B2A;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
 }
+
+.font-script { font-family: 'Dancing Script', cursive; }
+.font-playfair { font-family: 'Playfair Display', serif; }

@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 
-const WA_NUMBER = '91XXXXXXXXXX';
-const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! 🍓 I'd like to order fresh strawberries. Please share the details.");
+const WA_NUMBER = '919176540077';
+const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! I'd like to order fresh strawberries. Please share the details.");
+const IG_LINK = 'https://www.instagram.com/theberrypatch.organic?igsh=MTNocDgzdzF5ZWJnaA==';
+
 const SOCIAL_LINKS = [
   {
     label: 'Instagram',
-    href: 'https://instagram.com/theberrypatch',
+    href: IG_LINK,
     hoverBg: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)',
     Icon: () => (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -45,7 +47,6 @@ const QUICK_LINKS = [
   { label: 'Gallery', href: '#gallery' },
 ];
 
-
 export default function Footer() {
   const scrollTo = (href) => {
     const el = document.querySelector(href);
@@ -53,15 +54,21 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ background: '#1a0a0e', color: 'white' }}>
+    <footer style={{ background: '#0D1B2A', color: 'white' }}>
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-12">
-        {/* Brand */}
+
+        {/* Brand — logo image */}
         <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-2 text-2xl font-black" style={{ fontFamily: 'Poppins', color: '#E63946' }}>
-            <span>🍓</span> The Berry Patch
-          </div>
-          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'Lato' }}>
-            Delivering nature's sweetest gift — fresh, sustainably grown strawberries — straight from our farm to your table.
+          <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img
+              src="/logo.png"
+              alt="The Berry Patch"
+              style={{ height: 72, objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.9 }}
+            />
+          </a>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'Lato' }}>
+            Organic Goodness, Berry By Berry.{' '}
+            Fresh, sustainably grown strawberries straight from Kodaikanal to your table.
           </p>
           <div className="flex gap-3">
             {SOCIAL_LINKS.map(({ label, href, hoverBg, Icon }) => (
@@ -72,7 +79,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label={label}
                 whileHover={{ scale: 1.15 }}
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 group"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
                 style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.8)' }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = hoverBg; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}
@@ -81,18 +88,22 @@ export default function Footer() {
               </motion.a>
             ))}
           </div>
+          {/* Tagline */}
+          <p className="text-xs tracking-widest uppercase" style={{ color: '#4A7C3F', fontFamily: 'Poppins', fontWeight: 600 }}>
+            Kodaikanal, India
+          </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-lg font-bold mb-5" style={{ fontFamily: 'Poppins', color: '#E63946' }}>Quick Links</h4>
+          <h4 className="text-lg font-bold mb-5" style={{ fontFamily: 'Poppins', color: '#C0392B' }}>Quick Links</h4>
           <ul className="flex flex-col gap-3">
             {QUICK_LINKS.map((link) => (
               <li key={link.href}>
                 <button
                   onClick={() => scrollTo(link.href)}
                   className="text-left text-sm transition-colors duration-200 hover:text-white"
-                  style={{ fontFamily: 'Lato', color: 'rgba(255,255,255,0.6)' }}
+                  style={{ fontFamily: 'Lato', color: 'rgba(255,255,255,0.55)', background: 'none', border: 'none', cursor: 'pointer' }}
                 >
                   → {link.label}
                 </button>
@@ -103,28 +114,32 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 className="text-lg font-bold mb-5" style={{ fontFamily: 'Poppins', color: '#E63946' }}>Contact Us</h4>
-          <ul className="flex flex-col gap-3 text-sm" style={{ fontFamily: 'Lato', color: 'rgba(255,255,255,0.6)' }}>
-            <li className="flex items-start gap-2"><span>📍</span> Berry Farm Road, Mahabaleshwar, MH</li>
+          <h4 className="text-lg font-bold mb-5" style={{ fontFamily: 'Poppins', color: '#C0392B' }}>Contact Us</h4>
+          <ul className="flex flex-col gap-3 text-sm" style={{ fontFamily: 'Lato', color: 'rgba(255,255,255,0.55)' }}>
+            <li className="flex items-start gap-2"><span>📍</span> Kodaikanal, Tamil Nadu, India</li>
             <li className="flex items-center gap-2">
-              <span>📞</span>
-              <a href="tel:+91XXXXXXXXXX" className="hover:text-white transition-colors">+91 XXXXX XXXXX</a>
+              <span>📱</span>
+              <a href={`https://wa.me/${WA_NUMBER}`} className="hover:text-white transition-colors">+91 91765 40077</a>
             </li>
             <li className="flex items-center gap-2">
               <span>✉️</span>
-              <a href="mailto:info@berrypatch.com" className="hover:text-white transition-colors">info@berrypatch.com</a>
+              <a href="mailto:hello@berrysweetroots.in" className="hover:text-white transition-colors">hello@berrysweetroots.in</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <span>📷</span>
+              <a href={IG_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">@theberrypatch.organic</a>
             </li>
           </ul>
-          <div className="mt-6 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-            <h4 className="text-sm font-bold mb-2" style={{ fontFamily: 'Poppins', color: 'rgba(255,255,255,0.8)' }}>Order Hours</h4>
-            <p className="text-sm" style={{ fontFamily: 'Lato', color: 'rgba(255,255,255,0.5)' }}>Mon – Sat: 7 AM – 7 PM</p>
-            <p className="text-sm" style={{ fontFamily: 'Lato', color: 'rgba(255,255,255,0.5)' }}>Sunday: 8 AM – 2 PM</p>
+          <div className="mt-6 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+            <h4 className="text-sm font-bold mb-2" style={{ fontFamily: 'Poppins', color: 'rgba(255,255,255,0.7)' }}>Order Hours</h4>
+            <p className="text-sm" style={{ fontFamily: 'Lato', color: 'rgba(255,255,255,0.45)' }}>Mon – Sat: 7 AM – 7 PM</p>
+            <p className="text-sm" style={{ fontFamily: 'Lato', color: 'rgba(255,255,255,0.45)' }}>Sunday: 8 AM – 2 PM</p>
           </div>
         </div>
       </div>
 
-      <div className="py-6 px-6 text-center text-sm" style={{ borderTop: '1px solid rgba(255,255,255,0.08)', fontFamily: 'Lato', color: 'rgba(255,255,255,0.4)' }}>
-        © 2026 The Berry Patch. All rights reserved. Made with 🍓 and love.
+      <div className="py-5 px-6 text-center text-xs" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', fontFamily: 'Lato', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.05em' }}>
+        © 2026 The Berry Patch · Kodaikanal &nbsp;·&nbsp; Organic Goodness, Berry By Berry.
       </div>
     </footer>
   );

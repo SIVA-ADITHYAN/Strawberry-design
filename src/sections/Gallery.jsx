@@ -7,7 +7,7 @@ export default function Gallery() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section id="gallery" className="py-24 px-6" style={{ background: '#f8f1f3' }}>
+    <section id="gallery" className="py-24 px-6" style={{ background: '#F2F7EF' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -15,11 +15,11 @@ export default function Gallery() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#E63946' }}>
+          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#C0392B' }}>
             Behind the Scenes
           </span>
           <h2 className="text-4xl md:text-5xl font-black font-[Poppins] text-gray-900 mt-2">
-            Berry <span style={{ color: '#E63946' }}>Beautiful</span> Moments
+            Berry <span style={{ color: '#C0392B' }}>Beautiful</span> Moments
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto mt-4 font-[Lato] text-lg">
             A glimpse of freshness and flavour, straight from our fields.
@@ -44,7 +44,7 @@ export default function Gallery() {
               <img src={item.src} alt={item.alt}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: 'rgba(230,57,70,0.7)' }}>
+                style={{ background: 'rgba(192,57,43,0.7)' }}>
                 <ZoomIn className="text-white mb-2" size={28} />
                 <span className="text-white font-bold font-[Poppins] text-sm">{item.label}</span>
               </div>
@@ -78,7 +78,7 @@ export default function Gallery() {
               <button
                 onClick={() => setSelected(null)}
                 className="absolute -top-4 -right-4 w-10 h-10 rounded-full flex items-center justify-center text-white transition-colors"
-                style={{ background: '#E63946' }}
+                style={{ background: '#C0392B' }}
               >
                 <X size={18} />
               </button>

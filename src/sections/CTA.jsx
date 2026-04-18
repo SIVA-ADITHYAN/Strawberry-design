@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
-const WA_NUMBER = '91XXXXXXXXXX'; // replace with real number
+const WA_NUMBER = '919176540077'; // replace with real number
 const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! 🍓 I'd like to order fresh strawberries. Please share the details.");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
-const IG_LINK = 'https://instagram.com/theberrypatch'; // replace with real handle
+const IG_LINK = 'https://www.instagram.com/theberrypatch.organic?igsh=MTNocDgzdzF5ZWJnaA=='; // replace with real handle
 
 export default function CTA() {
   return (
@@ -11,14 +11,14 @@ export default function CTA() {
       <div className="absolute inset-0">
         <img src="/splash.png" alt="Strawberry splash" className="w-full h-full object-cover" />
         <div className="absolute inset-0"
-          style={{ background: 'linear-gradient(135deg, rgba(193,18,31,0.88), rgba(26,10,14,0.9))' }} />
+          style={{ background: 'linear-gradient(135deg, rgba(146,43,33,0.88), rgba(13,27,42,0.9))' }} />
       </div>
 
       {/* Decorative blur circles */}
       <div className="absolute top-10 left-20 w-40 h-40 rounded-full blur-3xl opacity-30"
-        style={{ background: '#F4A261' }} />
+        style={{ background: '#D4A853' }} />
       <div className="absolute bottom-10 right-20 w-56 h-56 rounded-full blur-3xl opacity-20"
-        style={{ background: '#2A9D8F' }} />
+        style={{ background: '#4A7C3F' }} />
 
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.span
@@ -26,7 +26,7 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="inline-block text-sm font-bold font-[Poppins] tracking-widest uppercase mb-4"
-          style={{ color: '#ff6b7a' }}
+          style={{ color: '#E8365D' }}
         >
           Limited Season
         </motion.span>

@@ -14,14 +14,14 @@ function ProductCard({ product, index }) {
       }`}
       style={{
         background: product.featured
-          ? 'linear-gradient(145deg, #1a0a0e, #2d0f17)'
+          ? 'linear-gradient(145deg, #0D1B2A, #1B3A6B)'
           : 'white',
-        ringColor: product.featured ? '#E63946' : undefined,
+        ringColor: product.featured ? '#C0392B' : undefined,
       }}
     >
       {product.featured && (
         <div className="absolute top-0 left-0 right-0 text-center text-xs font-bold font-[Poppins] py-1.5 text-white"
-          style={{ background: '#E63946' }}>
+          style={{ background: '#C0392B' }}>
           ✨ MOST POPULAR
         </div>
       )}
@@ -32,7 +32,7 @@ function ProductCard({ product, index }) {
         <div className="absolute inset-0"
           style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.3), transparent)' }} />
         <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold font-[Poppins] text-white"
-          style={{ background: product.featured ? '#E63946' : '#2A9D8F' }}>
+          style={{ background: product.featured ? '#C0392B' : '#4A7C3F' }}>
           {product.badge}
         </span>
       </div>
@@ -52,14 +52,14 @@ function ProductCard({ product, index }) {
         <div className="flex items-center justify-between mt-auto pt-4"
           style={{ borderTop: `1px solid ${product.featured ? 'rgba(255,255,255,0.15)' : '#f3f4f6'}` }}>
           <div>
-            <span className="text-2xl font-black font-[Poppins]" style={{ color: '#E63946' }}>{product.price}</span>
+            <span className="text-2xl font-black font-[Poppins]" style={{ color: '#C0392B' }}>{product.price}</span>
             <span className={`text-sm ml-1 font-[Lato] ${product.featured ? 'text-white/60' : 'text-gray-400'}`}>/ {product.unit}</span>
           </div>
           <a href="#order"
             className="px-5 py-2.5 rounded-full text-sm font-bold font-[Poppins] transition-all duration-200 hover:scale-105"
             style={product.featured
-              ? { background: '#E63946', color: 'white' }
-              : { background: '#FFF0F1', color: '#E63946', border: '1.5px solid #E63946' }}>
+              ? { background: '#C0392B', color: 'white' }
+              : { background: '#FFF0F1', color: '#C0392B', border: '1.5px solid #C0392B' }}>
             Order Now
           </a>
         </div>
@@ -70,7 +70,7 @@ function ProductCard({ product, index }) {
 
 export default function Products() {
   return (
-    <section id="products" className="py-24 px-6" style={{ background: '#f8f1f3' }}>
+    <section id="products" className="py-24 px-6" style={{ background: '#F2F7EF' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -78,11 +78,11 @@ export default function Products() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#E63946' }}>
+          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#C0392B' }}>
             What We Offer
           </span>
           <h2 className="text-4xl md:text-5xl font-black font-[Poppins] text-gray-900 mt-2">
-            Our <span style={{ color: '#E63946' }}>Strawberries</span>
+            Our <span style={{ color: '#C0392B' }}>Strawberries</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto mt-4 font-[Lato] text-lg">
             Carefully cultivated to deliver the perfect balance of sweetness and freshness. Handpicked at peak ripeness.

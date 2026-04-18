@@ -3,7 +3,7 @@ import { TRUST_ITEMS } from '../data/content';
 
 export default function TrustBar() {
   return (
-    <div className="py-4 overflow-hidden" style={{ background: 'linear-gradient(90deg, #E63946, #c1121f)' }}>
+    <div className="py-4 overflow-hidden" style={{ background: 'linear-gradient(90deg, #C0392B, #922B21)' }}>
       <div className="flex items-center justify-center flex-wrap gap-4 px-6 max-w-7xl mx-auto">
         {TRUST_ITEMS.map((item, i) => (
           <div key={item.text} className="flex items-center gap-6">

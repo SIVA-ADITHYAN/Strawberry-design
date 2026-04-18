@@ -6,7 +6,7 @@ function Stars({ count }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} size={14} fill="#F4A261" stroke="none" />
+        <Star key={i} size={14} fill="#D4A853" stroke="none" />
       ))}
     </div>
   );
@@ -14,7 +14,7 @@ function Stars({ count }) {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 px-6" style={{ background: '#FFF9F5' }}>
+    <section id="testimonials" className="py-24 px-6" style={{ background: '#FAFDF8' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,11 +22,11 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#E63946' }}>
+          <span className="text-sm font-bold font-[Poppins] tracking-widest uppercase" style={{ color: '#C0392B' }}>
             Reviews
           </span>
           <h2 className="text-4xl md:text-5xl font-black font-[Poppins] text-gray-900 mt-2">
-            What Our Customers <span style={{ color: '#E63946' }}>Say</span>
+            What Our Customers <span style={{ color: '#C0392B' }}>Say</span>
           </h2>
         </motion.div>
 
@@ -43,7 +43,7 @@ export default function Testimonials() {
                 t.featured ? 'text-white' : 'text-gray-800'
               }`}
               style={t.featured
-                ? { background: 'linear-gradient(135deg, #E63946, #c1121f)' }
+                ? { background: 'linear-gradient(135deg, #C0392B, #922B21)' }
                 : { background: 'white', border: '1px solid #f3e8ea' }
               }
             >
@@ -55,7 +55,7 @@ export default function Testimonials() {
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-black font-[Poppins] flex-shrink-0"
                   style={t.featured
                     ? { background: 'rgba(255,255,255,0.2)', color: 'white' }
-                    : { background: '#FFF0F1', color: '#E63946' }
+                    : { background: '#FFF0F1', color: '#C0392B' }
                   }>
                   {t.initials}
                 </div>
