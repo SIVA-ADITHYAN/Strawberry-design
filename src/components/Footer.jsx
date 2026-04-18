@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Logo from './Logo';
 
 const WA_NUMBER = '91XXXXXXXXXX';
 const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! 🍓 I'd like to order fresh strawberries. Please share the details.");
@@ -59,7 +58,7 @@ export default function Footer() {
         {/* Brand — logo with tagline */}
         <div className="flex flex-col gap-5">
           <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <Logo height={64} showTagline onDark />
+            <img src="/logo.png" alt="The Berry Patch" style={{ height: 64, objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
           </a>
           <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'Lato' }}>
             Fresh, organically grown strawberries from the cool hills of Kodaikanal — delivered to your door.

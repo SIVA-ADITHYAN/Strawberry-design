@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../data/content';
-import Logo from './Logo';
 
 const WA_NUMBER = '919176540077';
 const WA_MESSAGE = encodeURIComponent("Hi Berry Patch! I'd like to order fresh strawberries. Please share the details.");
@@ -52,46 +51,30 @@ export default function Navbar() {
       style={{
         background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
         backdropFilter: scrolled ? 'blur(14px)' : 'none',
-        padding: scrolled ? '6px 0' : '12px 0',
+        padding: scrolled ? '4px 0' : '10px 0',
         boxShadow: scrolled ? '0 1px 20px rgba(27,58,107,0.10)' : 'none',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-        {/* ── Logo ── */}
-        <a
-          href="#"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          style={{ textDecoration: 'none' }}
-        >
-          {scrolled ? (
-            /* On white navbar — show full colour logo */
-            <Logo height={48} />
-          ) : (
-            /* On hero (transparent) — white overlay version */
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ fontSize: 28, lineHeight: 1 }}>🍓</span>
-              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
-                <span style={{
-                  fontFamily: "'Poppins', sans-serif", fontWeight: 900,
-                  fontSize: 16, color: 'white',
-                  textShadow: '0 1px 6px rgba(0,0,0,0.5)', letterSpacing: '-0.01em',
-                }}>
-                  The Berry
-                </span>
-                <span style={{
-                  fontFamily: "'Dancing Script', cursive", fontWeight: 700,
-                  fontSize: 19, color: '#FBBF24',
-                  textShadow: '0 1px 6px rgba(0,0,0,0.5)', marginTop: -1,
-                }}>
-                  Patch
-                </span>
-              </div>
-            </div>
-          )}
+        {/* Logo */}
+        <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <img
+            src="/logo.png"
+            alt="The Berry Patch — Organic Goodness, Berry By Berry"
+            style={{
+              height: scrolled ? 52 : 56,
+              width: 'auto',
+              objectFit: 'contain',
+              transition: 'height 0.3s',
+              /* drop shadow so logo is visible on hero image */
+              filter: scrolled ? 'none' : 'drop-shadow(0 2px 6px rgba(0,0,0,0.45))',
+            }}
+          />
         </a>
 
-        {/* ── Desktop Nav ── */}
+        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <button
@@ -99,12 +82,12 @@ export default function Navbar() {
               onClick={() => handleLink(link.href)}
               style={{
                 fontFamily: 'Poppins', fontSize: 13, fontWeight: 600,
-                color: scrolled ? '#1B3A6B' : 'rgba(255,255,255,0.88)',
+                color: scrolled ? '#1B3A6B' : 'rgba(255,255,255,0.90)',
                 background: 'none', border: 'none', cursor: 'pointer',
                 transition: 'color 0.2s',
               }}
               onMouseEnter={e => { e.currentTarget.style.color = '#C0392B'; }}
-              onMouseLeave={e => { e.currentTarget.style.color = scrolled ? '#1B3A6B' : 'rgba(255,255,255,0.88)'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = scrolled ? '#1B3A6B' : 'rgba(255,255,255,0.90)'; }}
             >
               {link.label}
             </button>
@@ -123,18 +106,14 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* ── Mobile hamburger ── */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 rounded-lg"
-          style={{ color: scrolled ? '#1B3A6B' : 'white' }}
-          aria-label="Toggle menu"
-        >
+        {/* Mobile hamburger */}
+        <button onClick={() => setOpen(!open)} className="lg:hidden p-2 rounded-lg"
+          style={{ color: scrolled ? '#1B3A6B' : 'white' }} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* ── Mobile Menu ── */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -145,30 +124,23 @@ export default function Navbar() {
             className="lg:hidden bg-white overflow-hidden"
             style={{ borderTop: '1px solid #e8f0e4', boxShadow: '0 8px 24px rgba(27,58,107,0.10)' }}
           >
-            {/* Logo inside mobile menu */}
             <div className="flex justify-center py-5 pb-3">
-              <Logo height={60} showTagline />
+              <img src="/logo.png" alt="The Berry Patch" style={{ height: 64, objectFit: 'contain' }} />
             </div>
-
             <div className="px-6 pb-5 flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleLink(link.href)}
-                  className="text-left py-3 text-sm font-semibold transition-colors"
-                  style={{ fontFamily: 'Poppins', color: '#1B3A6B', borderBottom: '1px solid #f0f5ee', background: 'none', border: 'none', borderBottom: '1px solid #f0f5ee', cursor: 'pointer', width: '100%' }}
-                >
+                <button key={link.href} onClick={() => handleLink(link.href)}
+                  className="text-left py-3 text-sm font-semibold"
+                  style={{ fontFamily: 'Poppins', color: '#1B3A6B', borderBottom: '1px solid #f0f5ee', background: 'none', border: 'none', borderBottom: '1px solid #f0f5ee', cursor: 'pointer', width: '100%' }}>
                   {link.label}
                 </button>
               ))}
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold text-sm mt-3"
                 style={{ fontFamily: 'Poppins', background: '#25D366' }}>
                 <WaIcon size={18} /> Order on WhatsApp
               </a>
-              <a href={IG_LINK} target="_blank" rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
+              <a href={IG_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold text-sm"
                 style={{ fontFamily: 'Poppins', background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}>
                 <IgIcon size={18} /> Follow on Instagram
